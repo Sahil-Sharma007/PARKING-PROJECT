@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Ticket Booking System</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-section {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .feature {
+            width: 30%;
+            margin: 10px;
+            padding: 20px;
+            text-align: center;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+        }
+
+        .feature img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .cta-buttons {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 18px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border-radius: 4px;
+            margin: 10px;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Additional style to extend content height */
+        .content {
+            min-height: 150vh;
+        }
+
+
+
+        header {
+            position: relative;
+            overflow: hidden;
+        }
+
+        header video {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Parking Ticket Booking System</h1>
+    </header>
+
+    
+    <div class="container">
+        <div class="feature-section">
+            <div class="feature">
+                <img src="pexels-maria-orlova-4947277.jpg" alt="Parking Area">
+                <h3>Secure Parking Spaces</h3>
+                <p>Book a spot in our secure parking area with peace of mind.</p>
+            </div>
+
+            <div class="feature">
+                <img src="pexels-gijs-coolen-2549942.jpg" alt="User-friendly App">
+                <h3>User-friendly App</h3>
+                <p>Our app makes it easy to book and manage your parking tickets.</p>
+            </div>
+
+            <div class="feature">
+                <img src="pexels-jay-pizzle-3849551.jpg" alt="24/7 Customer Support">
+                <h3>24/7 Customer Support</h3>
+                <p>Our support team is ready to assist you anytime, anywhere.</p>
+            </div>
+        </div>
+
+        <div class="cta-buttons">
+            <a href="login.html" class="btn">Login</a>
+            <a href="index.html" class="btn">Sign Up</a>
+        </div>
+    </div>
+
+    <footer id="pageFooter">
+        <p>&copy; 2024 Parking Ticket Booking System</p>
+    </footer>
+
+</body>
+
+<script>
+    let lastScrollPosition = 0;
+
+    window.addEventListener('scroll', function() {
+        const currentScrollPosition = window.scrollY;
+
+        if (currentScrollPosition > lastScrollPosition) {
+            // Scrolling down
+            document.getElementById('pageFooter').style.opacity = '0';
+        } else {
+            // Scrolling up
+            document.getElementById('pageFooter').style.opacity = '1';
+        }
+
+        lastScrollPosition = currentScrollPosition;
+    });
+</script>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .confirmation-container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333333;
+        }
+
+        p {
+            color: #555555;
+            margin-bottom: 20px;
+        }
+
+        .icon-container {
+            margin: 20px 0;
+        }
+
+        .icon-check {
+            color: #4CAF50;
+            font-size: 48px;
+        }
+
+        .thank-you-message {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        .details-container {
+            margin-top: 20px;
+        }
+
+        .details {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 4px;
+        }
+
+        .details-label {
+            color: #333333;
+            font-weight: bold;
+        }
+
+        .details-value {
+            color: #555555;
+        }
+
+        .btn-container {
+            margin-top: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            text-align: center;
+            text-decoration: none;
+            background-color: #4CAF50;
+            color: #ffffff;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="confirmation-container">
+        <div class="icon-container">
+            <i class="icon-check">&#10004;</i>
+        </div>
+        <h1>Thanks for Booking!</h1>
+        <p class="thank-you-message">Your request has been successfully processed.</p>
+
+        <div class="details-container" id="detailsdata">
+            <!-- Details will be dynamically filled by JavaScript -->
+        </div>
+
+        <div class="btn-container">
+            <a href="park home.html" class="btn">Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        // Retrieve data from localStorage
+        const storedData = JSON.parse(localStorage.getItem("parkingReceipt"));
+
+        // Display the details on the confirmation page
+        if (storedData) {
+            const detailsContainer = document.getElementById("detailsdata");
+            detailsContainer.innerHTML = '';
+
+            // Counter to track the number of displayed fields
+            let fieldCount = 0;
+
+            for (const [label, value] of Object.entries(storedData)) {
+                // Display only the first 5 fields
+                if (fieldCount < 5) {
+                    const detailElement = document.createElement('div');
+                    detailElement.classList.add('details');
+
+                    const labelElement = document.createElement('span');
+                    labelElement.classList.add('details-label');
+                    labelElement.textContent = label;
+
+                    const valueElement = document.createElement('span');
+                    valueElement.classList.add('details-value');
+                    valueElement.textContent = value;
+
+                    detailElement.appendChild(labelElement);
+                    detailElement.appendChild(valueElement);
+                    detailsContainer.appendChild(detailElement);
+
+                    fieldCount++;
+                }
+            }
+        } else {
+            alert("No data found in localStorage.");
+        }
+    </script>
+</body>
+</html>

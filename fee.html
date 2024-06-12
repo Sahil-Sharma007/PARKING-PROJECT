@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Ticket Register</title>
+    <style>
+        /* Your existing styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #007bff;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #555555;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 16px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
+
+        button {
+            background-color: #28a745;
+            color: #ffffff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        #result {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: #333333;
+        }
+
+        #tslot,
+        #eslot {
+            height: 40px;
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            box-sizing: border-box;
+            background-color: #f8f9fa;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Parking Ticket Register</h1>
+        <form id="parkingForm">
+            <label for="vehicleType">Enter No Plate:</label>
+            <input type="text" id="noplate" name="noplate" required>
+
+            <label for="totalTime">Choose Time Slot (hours*3):</label>
+            <select name="tslot" id="tslot">
+                <option value="3">3hrs</option>
+                <option value="6">6hrs</option>
+                <option value="9">9hrs</option>
+                <option value="12">12hrs</option>
+            </select>
+
+            <label for="entryTime">Entry Time:</label>
+            <select name="eslot" id="eslot">
+                <option value="6:00">6:00</option>
+                <option value="9:00">9:00</option>
+                <option value="12:00">12:00</option>
+                <option value="15:00">15:00</option>
+            </select>
+
+            
+
+            <button type="button" id="btn2" onclick="calculateFees()">Calculate Parking Fees</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        async function calculateFees() {
+            const noplate = document.getElementById("noplate").value;
+            const time_in_hours = parseFloat(document.getElementById("tslot").value);
+            const entryTime = document.getElementById("eslot").value;
+  
+            // Assuming a flat fee of ₹100 per hour
+            let totalFees = time_in_hours * 100;
+
+            // Display the result on the client side
+            document.getElementById("result").innerHTML = `Parking fees for ${noplate} for ${time_in_hours} hours (Entry Time: ${entryTime}): ₹${totalFees.toFixed(2)}`;
+
+            try {
+                // Make an asynchronous call to the server
+                const response = await fetch("http://localhost:8000/fee", {
+                    method: 'post',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ noplate, time_in_hours, entryTime, totalFees })
+                });
+
+                // Check if the response is ok before proceeding
+                if (!response.ok) {
+                    throw new Error(`Server returned ${response.status}: ${response.statusText}`);
+                }
+
+                // Parse the JSON response
+                const result = await response.json();
+
+                console.log(result);
+
+                if (result) {
+                    // Store the result in localStorage
+                    localStorage.setItem("parkingReceipt", JSON.stringify(result));
+                    
+                    // Optionally, redirect to another page
+                    window.location.href = "receipt.html";
+                } else {
+                    alert(result.message);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while processing the request.');
+            }
+        }
+    </script>
+
+</body>
+
+</html>

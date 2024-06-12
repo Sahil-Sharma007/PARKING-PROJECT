@@ -1,0 +1,27 @@
+body {
+ font-family: Arial, sans-serif;
+}
+
+.parking-spot-container {
+ width: 100%;
+ max-width: 600px;
+ margin: 0 auto;
+ padding: 20px;
+ box-sizing: border-box;
+}
+
+.parking-spot-list {
+ list-style-type: none;
+ padding: 0;
+}
+
+.add-parking-spot {
+ display: block;
+ width: 100%;
+ margin-bottom: 20px;
+ padding: 10px;
+ background-color: #4CAF50;
+ color: white;
+ border: none;
+ cursor: pointer;
+}

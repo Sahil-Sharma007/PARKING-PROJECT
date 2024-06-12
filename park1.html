@@ -1,0 +1,371 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Area</title>
+    <style> -->
+
+<!-- body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .floor-plan {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px; /* reduced gap */
+            margin-top: 20px;
+        }
+
+        .floor-level {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px; -->
+<!-- } -->
+
+<!-- .parking-spot {
+            width: 80px; /* adjusted width */
+            height: 60px; /* adjusted height */
+            line-height: 60px; /* centered text vertically */
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 5px; /* reduced margin-bottom */
+            transition: background-color 0.3s ease; /* smooth transition */
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .parking-spot:hover {
+            background-color: #e0e0e0;
+        }
+
+        .floor-divider {
+            height: 10px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .reserved {
+            background-color: #00ff00; /* Change color to green (you can customize this) */
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Parking Area</h1>
+    </header> -->
+
+<!-- <div class="container"> -->
+<!-- Level 1 -->
+<!-- <div class="floor-plan">
+            <div class="floor-level">Level 1</div> -->
+
+<!-- Separate buttons for each parking spot -->
+<!-- <button class="parking-spot" onclick="reserveSpot(1, 1)" id="Spot1"> Spot 1</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 2)" id="Spot2"> Spot 2</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 3)" id="Spot3"> Spot 3</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 4)" id="Spot4"> Spot 4</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 5)" id="Spot5"> Spot 5</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 6)" id="Spot6"> Spot 6</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 7)" id="Spot7"> Spot 7</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 8)" id="Spot8"> Spot 8</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 9)" id="Spot9"> Spot 9</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 10)" id="Spot10" >Spot 10</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 11)" id="Spot11" >Spot 11</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 12)" id="Spot12" >Spot 12</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 13)" id="Spot13" >Spot 13</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 14)" id="Spot14" >Spot 14</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 15)" id="Spot15" >Spot 15</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 16)" id="Spot16" >Spot 16</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 17)" id="Spot17" >Spot 17</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 18)" id="Spot18" >Spot 18</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 19)" id="Spot19">Spot 19</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 20)" id="Spot20">Spot 20</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 21)" id="Spot21">Spot 21</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 22)" id="Spot22">Spot 22</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 23)" id="Spot23">Spot 23</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 24)" id="Spot24">Spot 24</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 25)" id="Spot25">Spot 25</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 26)" id="Spot26">Spot 26</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 27)" id="Spot27">Spot 27</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 28)" id="Spot28">Spot 28</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 29)" id="Spot29">Spot 29</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 30)" id="Spot30">Spot 30</button>
+           
+    </div>
+    <footer>
+        &copy; 2024 Parking Area. All rights reserved.
+    </footer>
+    <script>
+      
+
+     
+
+
+
+
+
+
+
+
+
+       async function reserveSpot(level, spotNumber) {
+          
+                alert('Level ' + level + ', Spot ' + spotNumber + ' reserved!');
+
+        let result = await fetch("http://localhost:8000/park", {
+            method: 'post',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ level,spotNumber})
+        });
+
+        result = await result.json();
+        console.log(result)
+
+        if (result) {
+            window.location.href = 'fee.html';
+        } else {
+            alert("error.");
+        }
+
+}; -->
+
+
+
+
+<!-- </script>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parking Area</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .floor-plan {
+            display: grid;
+            grid-template-columns: repeat(10, 1fr);
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .floor-level {
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .parking-spot {
+            width: 80px;
+            height: 60px;
+            line-height: 60px;
+            background-color: #f0f0f0;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-bottom: 5px;
+            transition: background-color 0.3s ease;
+            display: inline-block;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+        .parking-spot:hover {
+            background-color: #e0e0e0;
+        }
+
+        .floor-divider {
+            height: 10px;
+            background-color: #ccc;
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #333333;
+            color: #ffffff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .reserved {
+            background-color: #00ff00;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>Parking Area</h1>
+    </header>
+
+    <div class="container">
+        <!-- Level 1 -->
+        <div class="floor-plan">
+            <div class="floor-level">Level 1</div>
+
+            <!-- Separate buttons for each parking spot -->
+            <button class="parking-spot" onclick="reserveSpot(1, 1)" id="Spot1">Spot 1</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 2)" id="Spot2">Spot 2</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 3)" id="Spot3">Spot 3</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 4)" id="Spot4">Spot 4</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 5)" id="Spot5">Spot 5</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 6)" id="Spot6">Spot 6</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 7)" id="Spot7">Spot 7</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 8)" id="Spot8">Spot 8</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 9)" id="Spot9">Spot 9</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 10)" id="Spot10">Spot 10</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 11)" id="Spot11">Spot 11</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 12)" id="Spot12">Spot 12</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 13)" id="Spot13">Spot 13</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 14)" id="Spot14">Spot 14</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 15)" id="Spot15">Spot 15</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 16)" id="Spot16">Spot 16</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 17)" id="Spot17">Spot 17</button>
+            <button class="parking-spot" onclick="reserveSpot(1, 18)" id="Spot18">Spot 18</button>
+            <!-- Add more buttons as needed -->
+        </div>
+        <div class="floor-plan">
+            <div class="floor-level">Level 2</div>
+            <button class="parking-spot" onclick="reserveSpot(2, 1)" id="Spot21">Spot 1</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 2)" id="Spot22">Spot 2</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 3)" id="Spot23">Spot 3</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 4)" id="Spot24">Spot 4</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 5)" id="Spot25">Spot 5</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 6)" id="Spot26">Spot 6</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 7)" id="Spot27">Spot 7</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 8)" id="Spot28">Spot 8</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 9)" id="Spot29">Spot 9</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 10)" id="Spot210">Spot 10</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 11)" id="Spot211">Spot 11</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 12)" id="Spot212">Spot 12</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 13)" id="Spot213">Spot 13</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 14)" id="Spot214">Spot 14</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 15)" id="Spot215">Spot 15</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 16)" id="Spot216">Spot 16</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 17)" id="Spot217">Spot 17</button>
+            <button class="parking-spot" onclick="reserveSpot(2, 18)" id="Spot218">Spot 18</button>
+
+
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 Parking Area. All rights reserved.
+    </footer>
+    <script>
+        async function reserveSpot(level, spotNumber) {
+
+
+            alert('Level ' + level + ', Spot ' + spotNumber + ' reserved!');
+
+            let result = await fetch("http://localhost:8000/park", {
+                method: 'post',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ level, spotNumber })
+            });
+
+            result = await result.json();
+            console.log(result)
+
+            if (result) {
+                window.location.href = 'fee.html';
+            } else {
+                alert("error.");
+            }
+
+            var button = document.getElementById('Spot' + spotNumber);
+
+            var lastClickTime = localStorage.getItem('lastClickTime_' + button.id);
+            var currentTime = new Date().getTime();
+
+            if (!lastClickTime || (currentTime - lastClickTime > 12 * 60 * 60 * 1000)) {
+                var randomColor = '#' + Math.floor(Math.random() * 16777215).toString(16);
+                button.style.backgroundColor = randomColor;
+                localStorage.setItem('lastClickTime_' + button.id, currentTime);
+                localStorage.setItem('buttonColor_' + button.id, randomColor);
+
+                alert('Level ' + level + ', Spot ' + spotNumber + ' reserved!');
+                // Perform fetch and redirect here if needed
+            } else {
+                alert('Already booked.');
+            }
+        }
+
+        // Set saved colors on page load
+        document.addEventListener("DOMContentLoaded", function () {
+            for (var i = 1; i <= 3; i++) { // Adjust the loop limit based on the number of buttons
+                var button = document.getElementById('Spot' + i);
+                var savedColor = localStorage.getItem('buttonColor_' + button.id);
+                if (savedColor) {
+                    button.style.backgroundColor = savedColor;
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

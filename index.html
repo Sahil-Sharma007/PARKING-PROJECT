@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LOG</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Bar</title>
+    <style>
+        /* Style for the navigation bar */
+        ul.navbar {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: #333;
+        }
+
+        li.nav-item {
+            float: left;
+        }
+
+        li.nav-item a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 14px 16px;
+            text-decoration: none;
+        }
+
+        li.nav-item a:hover {
+            background-color: #555;
+        }
+    </style>
+</head>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        text-align: center;
+    }
+
+    .welcome-heading {
+        color: #333;
+        font-size: 3em;
+        margin-top: 100px;
+    }
+
+    .subtext {
+        color: #555;
+        font-size: 1.5em;
+        margin-top: 10px;
+    }
+</style>
+</head>
+<body>
+
+<!-- Attractive Heading
+<div class="welcome-heading">
+    Welcome
+    <div class="subtext">to our website</div>
+</div> -->
+
+
+<body>
+<!-- 
+    Navigation Bar -->
+    <!-- <ul class="navbar">
+        <li class="nav-item"><a href="#home">Home</a></li>
+        <li class="nav-item"><a href="#about">About</a></li>
+        <li class="nav-item"><a href="#services">Services</a></li>
+        <li class="nav-item"><a href="#contact">Contact</a></li>
+    </ul> -->
+
+    <title>Sign Up</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        h4 {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        main {
+            margin: 20px;
+            text-align: center;
+        }
+
+        form {
+            max-width: 400px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h4>Sign Up</h4>
+    </header>
+
+    <main>
+        <form id="signupForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required>
+
+            <!-- <button type="button" onclick="validateForm()">Sign Up</button>
+            <button type="button" onclick="validateLogin()">Login</button> -->
+            <!-- <a href="index.html"><button type="button" onclick="validateForm()">Sign Up</button></a>
+            <a href="login.html"><button type="button" onclick="validateLogin()">Login</button></a> -->
+            <button type="button"  id="btn1">Sign Up</button>
+            <button type="button" onclick="redirectToLogin()">Login</button>
+
+
+        </form>
+    </main>
+
+    <footer>
+        &copy; 2024 Your Company Name
+    </footer>
+
+    <script>
+    //     function redirectToSignup() {
+    //     // Replace "signup.html" with the actual URL or path you want to redirect to
+    //     window.location.href = "signup.html";
+    // }
+    function redirectToLogin() {
+        // Replace "login.html" with the actual URL or path you want to redirect to
+        window.location.href = "login.html";
+    }
+        function validateForm() {
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var password = document.getElementById('password').value;
+            var address = document.getElementById('address').value;
+
+            if (name === '' || email === '' || password === '' || address === '') {
+                alert('All fields are required');
+            } else {
+                //to enter the parking selection page
+                
+                 }
+        }
+    </script>
+
+<script>
+    const btn=document.getElementById("btn1");
+    btn.addEventListener("click",async(e)=>{
+    e.preventDefault();
+    let name = document.querySelector('[name="name"]').value;
+    let password = document.querySelector('[name="password"]').value;
+    let email = document.querySelector('[name="email"]').value;
+    let address=document.querySelector('[name="address"]').value;
+    let result=await fetch("http://localhost:8000/register",{
+    method:'post',
+    headers:{
+    'Content-Type':'application/json'
+    },
+    body:JSON.stringify({name,password,email,address})
+    
+    })
+    result= await result.json();
+    console.log(result);
+    if(result)
+    {
+     window.location.href="./park1.html";
+    }
+    })
+          </script>
+
+
+
+</body>
+</html>
